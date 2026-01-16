@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Portfolio - Alex Dev
+
+A modern, responsive portfolio website built with Next.js 16, React 19, TypeScript, and Tailwind CSS. This project showcases a senior frontend engineer's work, skills, and experience with a beautiful dark-themed design.
+
+## Project Structure
+
+```
+personal-portfolio/
+├── app/
+│   ├── layout.tsx          # Root layout with metadata and font configuration
+│   ├── page.tsx            # Home page with all sections
+│   └── globals.css         # Global styles, animations, and custom CSS
+├── components/
+│   ├── Navigation/
+│   │   └── Navigation.tsx  # Fixed navigation bar
+│   ├── Hero/
+│   │   └── Hero.tsx        # Hero section with intro and CTA
+│   ├── Sections/
+│   │   ├── Stats.tsx       # Statistics section
+│   │   ├── About.tsx       # About me section with profile image
+│   │   ├── Skills.tsx      # Tech stack showcase
+│   │   ├── Projects.tsx    # Portfolio projects (Bento grid layout)
+│   │   ├── Experience.tsx  # Work experience timeline
+│   │   ├── Education.tsx   # Education and certifications
+│   │   └── HireMe.tsx      # Contact form (Client Component)
+│   └── Footer/
+│       └── Footer.tsx      # Footer with links
+└── public/
+    └── assets/             # Static assets (images, icons, etc.)
+```
+
+## Technologies Used
+
+- **Next.js 16** - React framework with App Router
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS 4** - Utility-first CSS framework
+- **@iconify/react** - Icon library (Lucide icons)
+
+## Features
+
+- 🎨 **Modern Design** - Dark theme with zinc color palette
+- 📱 **Responsive** - Mobile-first design that works on all devices
+- ⚡ **Performance** - Server Components by default for optimal performance
+- 🎭 **Animations** - Smooth fade-in animations with staggered delays
+- 🔍 **SEO Optimized** - Proper metadata and semantic HTML
+- ♿ **Accessible** - Semantic HTML and proper ARIA attributes
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Install dependencies:
+
+```bash
+npm install
+# or
+pnpm install
+```
+
+2. Run the development server:
 
 ```bash
 npm run dev
 # or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Custom Styles
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All custom styles are located in `app/globals.css`, which includes:
 
-## Learn More
+- Custom animations (`fade-in-up` with delay classes)
+- Custom scrollbar styling
+- Grid background pattern
+- Font configuration
 
-To learn more about Next.js, take a look at the following resources:
+The project uses Tailwind CSS for all component styling. Custom CSS is only used where Tailwind cannot accurately reproduce the original design (animations, scrollbar, background patterns).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Component Architecture
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Server Components** - All components are Server Components by default for optimal performance
+- **Client Components** - Only the HireMe form uses `"use client"` for form interactivity
+- **Component Organization** - Components are organized by feature/group in the `/components` directory
 
-## Deploy on Vercel
+## Assets
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Static assets should be placed in `/public/assets`. Currently, the project uses an external image from Unsplash for the profile picture. To use local images, download them and place them in `/public/assets`, then update the image paths in the components.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Development
+
+- Edit pages in `app/page.tsx`
+- Add new components in `components/`
+- Update global styles in `app/globals.css`
+- Modify metadata in `app/layout.tsx`
+
+## Build for Production
+
+```bash
+npm run build
+npm start
+```
+
+## License
+
+© 2024 Alex Dev. Built with Tailwind & Next.js.
+# portfolio

@@ -1,0 +1,118 @@
+---
+alwaysApply: true
+---
+1. Project Structure
+- Always use Next.js App Router with the `/app` directory.
+- Every page must live in: /app/<route>/page.tsx
+- Root layout: /app/layout.tsx
+- Use nested layouts ONLY when necessary.
+- Maintain a clear folder structure:
+  /app
+  /components
+  /public/assets
+
+2. Server Components by Default
+- All components MUST be React Server Components unless absolutely required.
+- Add `"use client"` ONLY when:
+  • using useState, useEffect, useRef
+  • accessing window or document
+  • needing browser-only interactivity
+  • using DOM-based 3rd-party libraries
+- Never make a full page a client component unless unavoidable.
+
+3. Component Architecture
+- Break each HTML file into small, reusable components (Header, Footer, Card, Hero, etc.).
+- Use PascalCase for component and folder names.
+- Organize components inside:
+  /components/<Group>/<ComponentName>.tsx
+- Components must be single-responsibility and clean.
+
+
+4. Styling Rules
+- Use Tailwind CSS by default for all styling.
+- Convert HTML classes and inline styles into equivalent Tailwind utilities.
+- Maintain the original design, spacing, colors, and responsive behavior when translating to Tailwind.
+- If a section cannot be accurately recreated with Tailwind:
+    → Use a CSS Module for that specific component only.
+- If global layout or fonts require it:
+    → Add minimal global CSS in app/globals.css.
+- Avoid unnecessary custom CSS—prefer Tailwind utilities.
+- Do NOT change:
+  • colors
+  • spacing
+  • layout
+  • font usage
+
+5. Asset Handling
+- Move all images, icons, and static files to `/public/assets`.
+- Fix paths:
+  "images/img.png" → "/assets/img.png"
+- Use <Image> only when optimization is desired; <img> allowed for pixel-perfect matching.
+
+
+6. Routing & Navigation
+- Convert internal <a> → <Link href="/path">.
+- External links remain <a>, with:
+  • target="_blank"
+  • rel="noopener noreferrer"
+
+7. Interactivity (Client Components Only When Needed)
+- Only wrap interactive areas inside small "client" components:
+    FormClient, DropdownClient, ModalClient, etc.
+- Keep static UI in server components.
+- Do NOT convert full pages into client components.
+
+8. Accessibility & Semantics
+- Preserve semantic HTML (header, nav, main, section, footer).
+- Ensure all images include descriptive alt text.
+- Improve accessibility where missing.
+
+9. Tailwind Conversion Guidelines
+- Match the original HTML design pixel-for-pixel using Tailwind classes.
+- Preserve:
+  • spacing
+  • colors
+  • breakpoints
+  • typography
+  • grid/flex layout
+- If Tailwind cannot replicate a style accurately:
+    → Create a CSS Module for that specific component.
+
+
+10. Output Requirements
+- Always provide the complete file tree for the transformed code.
+- Code must run with:
+  npm run dev  OR  pnpm dev
+- Include:
+  • .tsx component files
+  • Tailwind styling
+  • Optional .module.css only when needed
+  • Updated asset paths
+- Add a README describing:
+  - project structure
+  - how to run
+  - where custom styles (if any) are stored
+
+
+11. Code Quality Standards
+- Use TypeScript unless user requests JavaScript.
+- Keep components clean, readable, and well-structured.
+- Avoid unnecessary abstraction or refactoring.
+- Prefer composition over complexity.
+- Try not to use any as type interface
+
+12. HTML → Next.js Conversion Rules
+- Keep the design identical to the original HTML.
+- Split repeated parts into components using Tailwind.
+- Translate inline/HTML styling → Tailwind utilities.
+- Maintain original responsive behavior.
+
+
+13. Steps for Converting Each HTML File
+    1. Create a Next.js page at: /app/<route>/page.tsx  
+    2. Move images → /public/assets  
+    3. Convert HTML → Tailwind-based components  
+    4. Extract reusable parts: Header, Footer, Card, Hero, etc.  
+    5. Add CSS Modules only when Tailwind cannot reproduce a style  
+    6. Wrap interactive elements inside minimal client components  
+    7. Provide final file tree + complete code
