@@ -13,16 +13,18 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <main className='relative pt-32 pb-20 px-6 max-w-[1920px] mx-auto overflow-hidden'>
-        <Hero />
-        <Stats />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Education />
-        <HireMe />
-        <Footer />
+      <main className='relative pt-32 pb-20 px-6 max-w-480 mx-auto overflow-hidden'>
+        <div className='container mx-auto'>
+          <Hero />
+          <Stats />
+          <About />
+          <Skills />
+          <Projects />
+          <Experience />
+          <Education />
+          <HireMe />
+          <Footer />
+        </div>
       </main>
     </>
   );
