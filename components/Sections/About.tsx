@@ -46,8 +46,9 @@ export default function About() {
               <span className='text-zinc-200 font-medium'>
                 Hi, I&apos;m Tonmoy Khan.
               </span>{' '}
-              A passionate Frontend Developer from Bangladesh with a love for creating
-              beautiful, functional web experiences. I&apos;ve been obsessed with the intersection of{' '}
+              A passionate Frontend Developer from Bangladesh with a love for
+              creating beautiful, functional web experiences. I&apos;ve been
+              obsessed with the intersection of{' '}
               <span className='text-zinc-200'>design engineering</span> and
               performance.
             </p>
@@ -60,9 +61,9 @@ export default function About() {
             </p>
             <p>
               Currently, I&apos;m diving deep into{' '}
-              <span className='text-zinc-200'>Next.js</span>, React Server Components,
-              and modern web technologies. When I&apos;m not pushing pixels or building
-              projects, you can find me:
+              <span className='text-zinc-200'>Next.js</span>, React Server
+              Components, and modern web technologies. When I&apos;m not pushing
+              pixels or building projects, you can find me:
             </p>
 
             <div className='grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6'>
