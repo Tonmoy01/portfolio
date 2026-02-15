@@ -7,7 +7,7 @@ import emailjs from "@emailjs/browser";
 // EmailJS Configuration - Replace these with your actual credentials
 // 1. Sign up at https://www.emailjs.com/
 // 2. Create an email service (Gmail, Outlook, etc.)
-// 3. Create an email template with variables: {{from_name}}, {{from_email}}, {{message}}
+// 3. Create an email template with variables: {{from_name}}, {{from_email}}, {{subject}}, {{message}}
 // 4. Replace the values below with your Service ID, Template ID, and Public Key
 const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
 const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
@@ -19,6 +19,13 @@ export default function HireMe() {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [emailCopied, setEmailCopied] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText("mdtonmoykhan65@gmail.com");
+    setEmailCopied(true);
+    setTimeout(() => setEmailCopied(false), 2000);
+  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -62,19 +69,23 @@ export default function HireMe() {
           <div className="flex flex-col justify-between">
             <div>
               <h2 className="text-2xl font-medium tracking-tight text-white mb-4">Let&apos;s work together</h2>
-              <p className="text-zinc-400 leading-relaxed mb-8 text-sm">
+              <p className="text-zinc-400 leading-relaxed mb-8 text-base">
                 Currently open to new opportunities and freelance projects. If you have a project in mind or just want to connect, feel free to reach out.
               </p>
             </div>
 
             <div className="space-y-4">
-              <a href="mailto:tonmoy@example.com" className="flex items-center gap-3 text-sm text-zinc-300 hover:text-white transition-colors p-3 rounded-lg hover:bg-zinc-800/50 border border-transparent hover:border-zinc-800 w-fit -ml-3">
-                <Icon icon="lucide:mail" width={18} className="text-zinc-500" />
-                tonmoy@example.com
+              <button onClick={copyEmail} className="flex items-center gap-3 text-sm text-zinc-300 hover:text-white transition-colors p-3 rounded-lg hover:bg-zinc-800/50 border border-transparent hover:border-zinc-800 w-fit -ml-3 cursor-pointer">
+                <Icon icon={emailCopied ? "lucide:check" : "lucide:mail"} width={18} className={emailCopied ? "text-emerald-400" : "text-zinc-500"} />
+                {emailCopied ? "Copied!" : "mdtonmoykhan65@gmail.com"}
+              </button>
+              <a href="https://wa.me/8801777671455" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-zinc-300 hover:text-white transition-colors p-3 rounded-lg hover:bg-zinc-800/50 border border-transparent hover:border-zinc-800 w-fit -ml-3">
+                <Icon icon="lucide:phone" width={18} className="text-zinc-500" />
+                +8801777671455
               </a>
               <div className="flex items-center gap-3 text-sm text-zinc-300 p-3 w-fit -ml-3">
                 <Icon icon="lucide:map-pin" width={18} className="text-zinc-500" />
-                Bangladesh (Remote)
+                Manikganj, Bangladesh
               </div>
             </div>
           </div>
@@ -103,6 +114,18 @@ export default function HireMe() {
                   placeholder="john@company.com"
                 />
               </div>
+            </div>
+
+            <div className="space-y-2">
+              <label htmlFor="subject" className="text-xs font-medium text-zinc-500 ml-1">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
+                className="w-full bg-zinc-950/80 border border-zinc-800 rounded-lg px-4 py-2.5 text-sm text-zinc-200 focus:outline-none focus:border-zinc-600 focus:ring-1 focus:ring-zinc-600/50 transition-all placeholder:text-zinc-700"
+                placeholder="Project inquiry"
+              />
             </div>
 
             <div className="space-y-2">
