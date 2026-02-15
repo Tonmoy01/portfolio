@@ -2,16 +2,6 @@
 
 import { FormEvent, useState, useRef } from "react";
 import { Icon } from "@iconify/react";
-import emailjs from "@emailjs/browser";
-
-// EmailJS Configuration - Replace these with your actual credentials
-// 1. Sign up at https://www.emailjs.com/
-// 2. Create an email service (Gmail, Outlook, etc.)
-// 3. Create an email template with variables: {{from_name}}, {{from_email}}, {{subject}}, {{message}}
-// 4. Replace the values below with your Service ID, Template ID, and Public Key
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -35,24 +25,37 @@ export default function HireMe() {
     setStatus("loading");
     setErrorMessage("");
 
+    const formData = new FormData(formRef.current);
+    const data = {
+      from_name: formData.get("from_name") as string,
+      from_email: formData.get("from_email") as string,
+      subject: formData.get("subject") as string,
+      message: formData.get("message") as string,
+    };
+
     try {
-      await emailjs.sendForm(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        EMAILJS_PUBLIC_KEY
-      );
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send message.");
+      }
 
       setStatus("success");
       formRef.current.reset();
-
-      // Reset success message after 5 seconds
       setTimeout(() => setStatus("idle"), 5000);
     } catch (error) {
       setStatus("error");
-      setErrorMessage("Failed to send message. Please try again or email directly.");
-
-      // Reset error after 5 seconds
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Failed to send message. Please try again or email directly."
+      );
       setTimeout(() => {
         setStatus("idle");
         setErrorMessage("");
