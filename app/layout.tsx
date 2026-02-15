@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Pacifico } from 'next/font/google';
+import ThemeProvider from '@/components/ThemeProvider';
 import './globals.css';
 
 const inter = Inter({
@@ -73,11 +74,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className='scroll-smooth'>
+    <html lang='en' className='scroll-smooth' suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${pacifico.variable} font-sans text-zinc-400 bg-zinc-950 antialiased selection:bg-indigo-500/30 selection:text-indigo-200 bg-grid`}
+        className={`${inter.variable} ${pacifico.variable} font-sans text-page-text bg-page-bg antialiased selection:bg-selection-bg selection:text-selection-text bg-grid`}
       >
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
