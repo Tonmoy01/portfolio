@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Pacifico } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({
@@ -8,10 +8,63 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
+const pacifico = Pacifico({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-signature',
+});
+
 export const metadata: Metadata = {
+  metadataBase: new URL('https://portfolio.tonmoykhan.site'),
   title: 'Md. Tonmoy Khan | Frontend Developer',
   description:
     'Frontend Developer focused on building accessible, pixel-perfect user interfaces with React, TypeScript, and modern design systems.',
+  keywords: [
+    'Frontend Developer',
+    'React Developer',
+    'Next.js',
+    'TypeScript',
+    'Tailwind CSS',
+    'Web Developer',
+    'Md. Tonmoy Khan',
+  ],
+  authors: [{ name: 'Md. Tonmoy Khan' }],
+  creator: 'Md. Tonmoy Khan',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://portfolio.tonmoykhan.site',
+    siteName: 'Md. Tonmoy Khan | Portfolio',
+    title: 'Md. Tonmoy Khan | Frontend Developer',
+    description:
+      'Frontend Developer focused on building accessible, pixel-perfect user interfaces with React, TypeScript, and modern design systems.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Md. Tonmoy Khan - Frontend Developer Portfolio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Md. Tonmoy Khan | Frontend Developer',
+    description:
+      'Frontend Developer focused on building accessible, pixel-perfect user interfaces with React, TypeScript, and modern design systems.',
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -22,7 +75,7 @@ export default function RootLayout({
   return (
     <html lang='en' className='scroll-smooth'>
       <body
-        className={`${inter.variable} font-sans text-zinc-400 bg-zinc-950 antialiased selection:bg-indigo-500/30 selection:text-indigo-200 bg-grid`}
+        className={`${inter.variable} ${pacifico.variable} font-sans text-zinc-400 bg-zinc-950 antialiased selection:bg-indigo-500/30 selection:text-indigo-200 bg-grid`}
       >
         {children}
       </body>
