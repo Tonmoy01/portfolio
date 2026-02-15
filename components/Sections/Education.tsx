@@ -25,21 +25,20 @@ export default function Education() {
   return (
     <section id="education" className="mb-32 animate-enter delay-500 grid grid-cols-1 md:grid-cols-12 gap-10">
       <div className="md:col-span-4">
-        <h2 className="text-2xl font-medium tracking-tight text-zinc-100">Education</h2>
+        <h2 className="text-2xl font-medium tracking-tight text-text-title">Education</h2>
       </div>
       <div className="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
         {educationItems.map((item, index) => (
-          <div key={index} className="p-6 rounded-xl border border-zinc-800 bg-zinc-900/20 hover:bg-zinc-900/40 hover:border-zinc-700 transition-all duration-300 group hover:-translate-y-1">
+          <div key={index} className="p-6 rounded-xl border border-border-primary bg-surface-tertiary hover:bg-surface-secondary hover:border-border-strong transition-all duration-300 group hover:-translate-y-1">
             <div className="flex justify-between items-start mb-4">
-              <Icon icon={item.icon} width={20} className="text-zinc-500 group-hover:text-zinc-300 transition-colors" />
-              <span className="text-base font-mono text-zinc-500">{item.period}</span>
+              <Icon icon={item.icon} width={20} className="text-text-muted group-hover:text-text-secondary transition-colors" />
+              <span className="text-base font-mono text-text-muted">{item.period}</span>
             </div>
-            <h3 className="text-lg font-medium text-zinc-200">{item.title}</h3>
-            <p className="text-base text-zinc-500 mt-1">{item.institution}</p>
+            <h3 className="text-lg font-medium text-text-emphasis">{item.title}</h3>
+            <p className="text-base text-text-muted mt-1">{item.institution}</p>
           </div>
         ))}
       </div>
     </section>
   );
 }
-

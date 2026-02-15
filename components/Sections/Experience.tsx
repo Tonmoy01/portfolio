@@ -43,7 +43,7 @@ export default function Experience() {
       className='mb-32 animate-enter delay-400 grid grid-cols-1 md:grid-cols-12 gap-10'
     >
       <div className='md:col-span-4'>
-        <h2 className='text-2xl font-medium tracking-tight text-zinc-100 sticky top-24'>
+        <h2 className='text-2xl font-medium tracking-tight text-text-title sticky top-24'>
           Experience
         </h2>
       </div>
@@ -52,30 +52,30 @@ export default function Experience() {
         {experiences.map((exp, index) => (
           <div
             key={index}
-            className='relative pl-8 group border-l border-zinc-800'
+            className='relative pl-8 group border-l border-border-primary'
           >
-            <div className='absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-800 border border-zinc-950 group-hover:bg-zinc-100 transition-colors duration-300'></div>
+            <div className='absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-border-primary border border-border-dot group-hover:bg-text-title transition-colors duration-300'></div>
             <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2'>
-              <h3 className='text-lg font-semibold text-zinc-200 group-hover:text-white transition-colors'>
+              <h3 className='text-lg font-semibold text-text-emphasis group-hover:text-text-heading transition-colors'>
                 {exp.title}
               </h3>
               {exp.period && (
-                <span className='text-sm font-mono text-zinc-500 bg-zinc-900 border border-zinc-800 px-2 py-1 rounded'>
+                <span className='text-sm font-mono text-text-muted bg-surface-elevated border border-border-primary px-2 py-1 rounded'>
                   {exp.period}
                 </span>
               )}
             </div>
-            <div className='mb-4 text-base text-zinc-400 font-medium'>
+            <div className='mb-4 text-base text-text-body font-medium'>
               {exp.company}
             </div>
             {Array.isArray(exp.description) ? (
-              <ul className='list-disc list-outside ml-4 space-y-2 text-base text-zinc-500 marker:text-zinc-700'>
+              <ul className='list-disc list-outside ml-4 space-y-2 text-base text-text-muted marker:text-marker'>
                 {exp.description.map((item, idx) => (
                   <li key={idx}>{item}</li>
                 ))}
               </ul>
             ) : (
-              <p className='text-base text-zinc-500'>{exp.description}</p>
+              <p className='text-base text-text-muted'>{exp.description}</p>
             )}
           </div>
         ))}
