@@ -3,7 +3,14 @@
     "allow": [
       "Bash(git checkout:*)",
       "Bash(git add:*)",
-      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd Docker containerization setup and layout improvements\n\n- Configure Next.js standalone output for Docker deployment\n- Add multi-stage Dockerfile for optimized production builds\n- Add .dockerignore and Dockerfile.bun alternatives\n- Update layout max-width and container structure\n- Improve text formatting in About section\n- Remove obsolete cursor rules file\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd Docker containerization setup and layout improvements\n\n- Configure Next.js standalone output for Docker deployment\n- Add multi-stage Dockerfile for optimized production builds\n- Add .dockerignore and Dockerfile.bun alternatives\n- Update layout max-width and container structure\n- Improve text formatting in About section\n- Remove obsolete cursor rules file\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git stash:*)",
+      "Bash(gh pr create:*)",
+      "Bash(gh pr view:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "WebFetch(domain:api.iconify.design)"
     ]
   }
 }
