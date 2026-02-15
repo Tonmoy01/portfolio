@@ -1,6 +1,6 @@
 # Md. Tonmoy Khan | Portfolio
 
-A modern, responsive portfolio website built with Next.js 16, React 19, TypeScript, and Tailwind CSS 4. Features a dark-themed design, server-side contact form with Nodemailer, and Docker support for production deployment.
+A modern, responsive portfolio website built with Next.js 16, React 19, TypeScript, and Tailwind CSS 4. Features a dark-themed design, server-side contact form with Resend, and Docker support for production deployment.
 
 **Live:** [portfolio.tonmoykhan.site](https://portfolio.tonmoykhan.site)
 
@@ -9,7 +9,7 @@ A modern, responsive portfolio website built with Next.js 16, React 19, TypeScri
 ```
 portfolio/
 ├── app/
-│   ├── api/contact/route.ts  # Contact form API (Nodemailer + rate limiting)
+│   ├── api/contact/route.ts  # Contact form API (Resend + rate limiting)
 │   ├── layout.tsx            # Root layout with metadata, OG tags, fonts
 │   ├── page.tsx              # Home page with all sections
 │   ├── globals.css           # Global styles, animations, custom CSS
@@ -41,7 +41,7 @@ portfolio/
 - **React 19** - Server & Client Components
 - **TypeScript 5** - Strict mode
 - **Tailwind CSS 4** - Utility-first styling
-- **Nodemailer** - Server-side email via Gmail SMTP
+- **Resend** - Transactional email API
 - **@iconify/react** - Lucide icon set
 
 ## Features
@@ -67,11 +67,12 @@ portfolio/
 Create a `.env.local` file in the project root:
 
 ```env
-GMAIL_USER=your-email@gmail.com
-GMAIL_APP_PASSWORD=your-16-char-app-password
+RESEND_API_KEY=re_your_api_key_here
+RESEND_FROM_EMAIL=Portfolio Contact <onboarding@resend.dev>
+CONTACT_TO_EMAIL=your-email@example.com
 ```
 
-> Generate a Gmail App Password at [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords).
+> Get your API key at [resend.com/api-keys](https://resend.com/api-keys). For production, verify your domain at [resend.com/domains](https://resend.com/domains).
 
 ### Installation
 
