@@ -37,8 +37,15 @@ export default function Hero() {
             >
               Explore Work
             </Link>
+            <Link
+              href='/resume'
+              className='flex items-center gap-2 px-6 py-3 rounded-lg border border-border-primary text-text-body hover:text-text-heading hover:border-border-strong hover:bg-surface-elevated transition-all font-medium text-sm'
+            >
+              <Icon icon='lucide:file-text' width={18} />
+              Resume
+            </Link>
             <a
-              href='https://github.com/tonmoykhan'
+              href='https://github.com/Tonmoy01'
               target='_blank'
               rel='noopener noreferrer'
               className='p-3 rounded-lg border border-border-primary text-text-body hover:text-text-heading hover:border-border-strong hover:bg-surface-elevated transition-all'
@@ -46,7 +53,7 @@ export default function Hero() {
               <Icon icon='lucide:github' width={20} />
             </a>
             <a
-              href='https://linkedin.com/in/tonmoykhan'
+              href='https://www.linkedin.com/in/mdtonmoykhan/'
               target='_blank'
               rel='noopener noreferrer'
               className='p-3 rounded-lg border border-border-primary text-text-body hover:text-text-heading hover:border-border-strong hover:bg-surface-elevated transition-all'

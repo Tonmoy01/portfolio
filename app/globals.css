@@ -4,7 +4,7 @@
 
 /* ===== LIGHT MODE (default) ===== */
 :root {
-  --color-page-bg: #ffffff;
+  --color-page-bg: #E7E5E5;
   --color-page-text: #52525b;
 
   --color-surface-primary: rgba(244, 244, 245, 0.8);
@@ -240,13 +240,6 @@ body {
     linear-gradient(to bottom, var(--color-grid-line) 1px, transparent 1px);
 }
 
-/* Robot SVG light mode filter */
-:root .hero-robot {
-  filter: invert(1) hue-rotate(180deg);
-}
-.dark .hero-robot {
-  filter: none;
-}
 
 /* Marquee / Sliding Animation */
 @keyframes marquee-left {
