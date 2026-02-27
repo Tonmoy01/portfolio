@@ -55,6 +55,10 @@ export const metadata: Metadata = {
       'Frontend Developer focused on building accessible, pixel-perfect user interfaces with React, TypeScript, and modern design systems.',
     images: ['/og-image.png'],
   },
+  icons: {
+    icon: '/icon.svg',
+    apple: '/icon.svg',
+  },
   robots: {
     index: true,
     follow: true,

@@ -15,6 +15,7 @@ const experiences: ExperienceItem[] = [
       'Integrate RESTful APIs and optimize data-fetching strategies for performance and SEO.',
       'Develop responsive, accessible UI components with Tailwind CSS following a design-system-first approach.',
       'Collaborate with backend and product teams across time zones to ship features on tight sprint cycles.',
+      'Developed a mobile application using WebView architecture to render responsive web interfaces seamlessly within a native app environment.',
     ],
   },
   {
