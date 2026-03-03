@@ -59,4 +59,12 @@ export const projects: Project[] = [
     featured: true,
     tags: ["Corporate", "React"],
   },
+  {
+    id: "ktalklive",
+    title: "K-Talk Live",
+    description: "Speak Korean from Day One",
+    thumbnail: "/projects/ktalklive.png",
+    url: "https://ktalk.live",
+    tags: ["Next.js", "Education"],
+  },
 ];
