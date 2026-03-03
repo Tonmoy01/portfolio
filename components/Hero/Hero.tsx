@@ -32,14 +32,8 @@ export default function Hero() {
 
           <div className='flex flex-wrap items-center gap-4'>
             <Link
-              href='#projects'
-              className='bg-cta-bg text-cta-text px-6 py-3 rounded-lg font-medium text-sm hover:bg-cta-hover transition-all shadow-[0_0_20px_var(--color-cta-shadow)]'
-            >
-              Explore Work
-            </Link>
-            <Link
               href='/resume'
-              className='flex items-center gap-2 px-6 py-3 rounded-lg border border-border-primary text-text-body hover:text-text-heading hover:border-border-strong hover:bg-surface-elevated transition-all font-medium text-sm'
+              className='flex items-center gap-2 bg-cta-bg text-cta-text px-6 py-3 rounded-lg font-medium text-sm hover:bg-cta-hover transition-all shadow-[0_0_20px_var(--color-cta-shadow)]'
             >
               <Icon icon='lucide:file-text' width={18} />
               Resume
