@@ -31,8 +31,8 @@ export default function About() {
               <p>
                 Frontend Developer experienced in delivering production-ready
                 applications for both remote and onsite teams. Worked with{' '}
-                <span className='text-text-emphasis'>PotentialAI</span> and{' '}
-                <span className='text-text-emphasis'>BulipeTech Ltd</span>,
+                <span className='text-text-emphasis'>PotentialAI</span>
+                {/* <span className='text-text-emphasis'>BulipeTech Ltd</span>, */}
                 developing scalable, SEO-friendly, and performance-optimized web
                 applications using{' '}
                 <span className='text-text-emphasis'>
