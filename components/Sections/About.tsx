@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { Icon } from '@iconify/react';
 
@@ -59,17 +60,15 @@ export default function About() {
 
             {/* Action Buttons */}
             <div className='flex gap-3 mt-6'>
-              <a
-                href='/resume.pdf'
-                target='_blank'
-                rel='noopener noreferrer'
+              <Link
+                href='/resume'
                 className='inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border-strong bg-surface-hover text-text-emphasis text-sm font-medium hover:bg-surface-elevated hover:border-border-strong transition-all'
               >
                 <Icon icon='lucide:eye' width={16} />
                 Resume
-              </a>
+              </Link>
               <a
-                href='mailto:tonmoykhan1477@gmail.com'
+                href='mailto:mdtonmoykhan65@gmail.com'
                 className='inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border-strong bg-surface-hover text-text-emphasis text-sm font-medium hover:bg-surface-elevated hover:border-border-strong transition-all'
               >
                 <Icon icon='lucide:mail' width={16} />

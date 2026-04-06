@@ -8,26 +8,27 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     title: 'Frontend Developer',
-    period: 'Sep 2025 — Present',
+    period: 'March 2024 — Present',
     company: 'PotentialAI · Remote (South Korea)',
     description: [
       'Build and maintain customer-facing web applications using React.js and Next.js in a fully remote, cross-functional team.',
       'Integrate RESTful APIs and optimize data-fetching strategies for performance and SEO.',
       'Develop responsive, accessible UI components with Tailwind CSS following a design-system-first approach.',
       'Collaborate with backend and product teams across time zones to ship features on tight sprint cycles.',
+      'Developed a mobile application using WebView architecture to render responsive web interfaces seamlessly within a native app environment.',
     ],
   },
-  {
-    title: 'Frontend Engineer',
-    period: 'Mar 2025 — Aug 2025',
-    company: 'BulipeTech · Onsite (Mohakhali, Dhaka)',
-    description: [
-      'Developed scalable frontend modules for internal dashboards and client-facing products using React.js and Next.js.',
-      'Implemented JWT-based authentication flows and role-based access control on the frontend.',
-      'Worked closely with UI/UX designers to translate Figma mockups into pixel-perfect, responsive interfaces.',
-      'Improved page load performance through code splitting, lazy loading, and image optimization techniques.',
-    ],
-  },
+  // {
+  //   title: 'Frontend Engineer',
+  //   period: 'Mar 2025 — Aug 2025',
+  //   company: 'BulipeTech · Onsite (Mohakhali, Dhaka)',
+  //   description: [
+  //     'Developed scalable frontend modules for internal dashboards and client-facing products using React.js and Next.js.',
+  //     'Implemented JWT-based authentication flows and role-based access control on the frontend.',
+  //     'Worked closely with UI/UX designers to translate Figma mockups into pixel-perfect, responsive interfaces.',
+  //     'Improved page load performance through code splitting, lazy loading, and image optimization techniques.',
+  //   ],
+  // },
   {
     title: 'Freelance Developer',
     company: 'Self-Employed',

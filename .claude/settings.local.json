@@ -17,7 +17,27 @@
       "Bash(npx tsc:*)",
       "Bash(gh pr list:*)",
       "Bash(ls:*)",
-      "Bash(npx next build)"
+      "Bash(npx next build)",
+      "WebFetch(domain:ivorymade.com)",
+      "WebFetch(domain:potentialai.com)",
+      "WebFetch(domain:pacepilot.tonmoykhan.site)",
+      "Bash(curl -L -o /c/Users/TONMOY/Documents/portfolio/public/projects/ivorymade.webp \"https://image.thum.io/get/width/1280/crop/800/https://ivorymade.com/\")",
+      "Bash(curl -L -o /c/Users/TONMOY/Documents/portfolio/public/projects/potentialai.webp \"https://image.thum.io/get/width/1280/crop/800/https://potentialai.com/\")",
+      "Bash(curl -L -o /c/Users/TONMOY/Documents/portfolio/public/projects/pacepilot.webp \"https://image.thum.io/get/width/1280/crop/800/https://pacepilot.tonmoykhan.site/\")",
+      "Bash(file /c/Users/TONMOY/Documents/portfolio/public/projects/*.webp)",
+      "Bash(curl -s \"https://api.microlink.io/?url=https://ivorymade.com&screenshot=true&meta=false&embed=screenshot.url&waitForTimeout=8000&viewport.width=1280&viewport.height=800\" -o /c/Users/TONMOY/Documents/portfolio/public/projects/ivorymade.png -L)",
+      "Bash(curl -s \"https://api.microlink.io/?url=https://potentialai.com&screenshot=true&meta=false&embed=screenshot.url&waitForTimeout=8000&viewport.width=1280&viewport.height=800\" -o /c/Users/TONMOY/Documents/portfolio/public/projects/potentialai.png -L)",
+      "Bash(curl -s \"https://api.microlink.io/?url=https://pacepilot.tonmoykhan.site&screenshot=true&meta=false&embed=screenshot.url&waitForTimeout=8000&viewport.width=1280&viewport.height=800\" -o /c/Users/TONMOY/Documents/portfolio/public/projects/pacepilot.png -L)",
+      "WebFetch(domain:jobdaten.com)",
+      "WebFetch(domain:lifebridgecare.org)",
+      "WebFetch(domain:conmataruba.com)",
+      "Bash(curl -s \"https://api.microlink.io/?url=https://jobdaten.com&screenshot=true&meta=false&embed=screenshot.url&waitForTimeout=8000&viewport.width=1280&viewport.height=800\" -o /c/Users/TONMOY/Documents/portfolio/public/projects/jobdaten.png -L)",
+      "Bash(curl -s \"https://api.microlink.io/?url=https://lifebridgecare.org&screenshot=true&meta=false&embed=screenshot.url&waitForTimeout=8000&viewport.width=1280&viewport.height=800\" -o /c/Users/TONMOY/Documents/portfolio/public/projects/lifebridgecare.png -L)",
+      "Bash(curl -s \"https://api.microlink.io/?url=https://conmataruba.com&screenshot=true&meta=false&embed=screenshot.url&waitForTimeout=8000&viewport.width=1280&viewport.height=800\" -o /c/Users/TONMOY/Documents/portfolio/public/projects/conmataruba.png -L)",
+      "Bash(curl -sI http://localhost:3000/resume.pdf)",
+      "Bash(npm ls react-pdf pdfjs-dist)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/resume.pdf)",
+      "Bash(taskkill //PID 10004 //F)"
     ]
   }
 }
