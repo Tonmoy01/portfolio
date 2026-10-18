@@ -1,6 +1,6 @@
 # Md. Tonmoy Khan | Portfolio
 
-A modern, responsive portfolio website built with Next.js 16, React 19, TypeScript, and Tailwind CSS 4. Features a dark-themed design, server-side contact form with Resend, and Docker support for production deployment.
+A modern, high-performance portfolio website migrated from Next.js to **Astro 5**, featuring React 19, TypeScript, and Tailwind CSS 4. Built with Astro Islands architecture for blazing-fast page loads (near-zero client JS by default), a server-side contact form with Resend, and Docker support for production deployment.
 
 **Live:** [portfolio.tonmoykhan.site](https://portfolio.tonmoykhan.site)
 
@@ -8,47 +8,60 @@ A modern, responsive portfolio website built with Next.js 16, React 19, TypeScri
 
 ```
 portfolio/
-├── app/
-│   ├── api/contact/route.ts  # Contact form API (Resend + rate limiting)
-│   ├── layout.tsx            # Root layout with metadata, OG tags, fonts
-│   ├── page.tsx              # Home page with all sections
-│   ├── globals.css           # Global styles, animations, custom CSS
-│   ├── robots.ts             # Dynamic robots.txt
-│   └── sitemap.ts            # Dynamic sitemap.xml
-├── components/
-│   ├── Navigation/
-│   │   └── Navigation.tsx    # Fixed navigation bar
-│   ├── Hero/
-│   │   └── Hero.tsx          # Hero section with intro and CTA
-│   ├── Sections/
-│   │   ├── Stats.tsx         # Statistics section
-│   │   ├── About.tsx         # About me section with profile image
-│   │   ├── Skills.tsx        # Tech stack showcase
-│   │   ├── Projects.tsx      # Portfolio projects (Bento grid layout)
-│   │   ├── Experience.tsx    # Work experience timeline
-│   │   ├── Education.tsx     # Education and certifications
-│   │   └── HireMe.tsx        # Contact form (Client Component)
-│   └── Footer/
-│       └── Footer.tsx        # Footer with links
-├── public/assets/            # Static assets (images, icons, OG image)
-├── Dockerfile                # Multi-stage production build (Node.js)
-└── Dockerfile.bun            # Alternative Bun runtime build
+├── src/
+│   ├── layouts/
+│   │   └── Layout.astro         # Root layout with metadata, OG tags, fonts, theme script
+│   ├── pages/
+│   │   ├── index.astro          # Home page with all sections (Astro Islands)
+│   │   ├── resume.astro         # Interactive resume viewer page
+│   │   ├── robots.txt.ts        # Dynamic robots.txt endpoint
+│   │   ├── sitemap.xml.ts       # Dynamic sitemap.xml endpoint
+│   │   └── api/
+│   │       ├── contact.ts       # Contact form API (Resend + rate limiting)
+│   │       └── resume.ts        # PDF resume delivery API
+│   ├── components/
+│   │   ├── Navigation/
+│   │   │   └── Navigation.tsx   # Fixed navigation bar (interactive island)
+│   │   ├── Hero/
+│   │   │   └── Hero.tsx         # Hero section with intro and CTA
+│   │   ├── Sections/
+│   │   │   ├── Stats.tsx        # Statistics section
+│   │   │   ├── About.tsx        # About me section with profile image
+│   │   │   ├── Skills.tsx       # Tech stack showcase with animated marquee
+│   │   │   ├── Projects.tsx     # Portfolio projects (Bento grid layout)
+│   │   │   ├── Experience.tsx   # Work experience timeline
+│   │   │   ├── Education.tsx    # Education and certifications
+│   │   │   └── HireMe.tsx       # Contact form (interactive island)
+│   │   ├── Resume/
+│   │   │   └── PdfViewer.tsx    # Client-only PDF reader component
+│   │   └── ThemeToggle/
+│   │       └── ThemeToggle.tsx  # Theme switcher (Light/Dark/System)
+│   ├── data/
+│   │   └── projects.ts          # Project portfolio data
+│   ├── hooks/
+│   │   └── useTheme.ts          # Theme state and local storage synchronization
+│   └── styles/
+│       └── globals.css          # Tailwind CSS 4, CSS theme variables, animations
+├── public/                      # Static assets (images, icons, resume PDF)
+├── astro.config.mjs             # Astro 5 configuration (Node adapter + React + Tailwind v4)
+├── Dockerfile                   # Multi-stage production build (Node.js)
+└── Dockerfile.bun               # Alternative Bun runtime build
 ```
 
 ## Tech Stack
 
-- **Next.js 16** - App Router, standalone output
-- **React 19** - Server & Client Components
+- **Astro 5** - Islands architecture, server-rendered endpoints & static components
+- **React 19** - Client-side interactive islands (`Navigation`, `HireMe`, `ThemeToggle`, `PdfViewer`)
 - **TypeScript 5** - Strict mode
-- **Tailwind CSS 4** - Utility-first styling
+- **Tailwind CSS 4** - Utility-first styling with `@tailwindcss/vite`
 - **Resend** - Transactional email API
 - **@iconify/react** - Lucide icon set
 
 ## Features
 
-- Dark theme with zinc color palette
+- Near-zero client-side JavaScript overhead on static sections
+- Dark / Light / System theme support with zero flash of unstyled theme
 - Mobile-first responsive design
-- Server Components by default, Client Components only where needed
 - Server-side contact form API with rate limiting (5 req/IP/hour)
 - Smooth fade-in animations with staggered delays
 - SEO optimized with OpenGraph and Twitter card metadata
@@ -59,12 +72,12 @@ portfolio/
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 20+
 - npm or pnpm
 
 ### Environment Variables
 
-Create a `.env.local` file in the project root:
+Create a `.env` or `.env.local` file in the project root:
 
 ```env
 RESEND_API_KEY=re_your_api_key_here
@@ -74,27 +87,27 @@ CONTACT_TO_EMAIL=your-email@example.com
 
 > Get your API key at [resend.com/api-keys](https://resend.com/api-keys). For production, verify your domain at [resend.com/domains](https://resend.com/domains).
 
-### Installation
+### Installation & Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:4321](http://localhost:4321) in your browser.
 
 ### Production Build
 
 ```bash
 npm run build
-npm start
+npm run preview
 ```
 
 ### Docker
 
 ```bash
 docker build -t portfolio .
-docker run -p 3000:3000 --env-file .env.local portfolio
+docker run -p 3000:3000 --env-file .env portfolio
 ```
 
 ## API
@@ -118,4 +131,4 @@ Sends an email through the contact form.
 
 ## License
 
-Built by Md. Tonmoy Khan with Next.js and Tailwind CSS.
+Built by Md. Tonmoy Khan with Astro, React, and Tailwind CSS.
