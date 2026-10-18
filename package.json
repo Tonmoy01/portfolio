@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/node": "^9.1.5",
     "@astrojs/react": "^4.2.1",
+    "@astrojs/vercel": "^8.2.11",
     "@iconify/react": "^6.0.2",
     "@tailwindcss/vite": "^4.0.9",
     "astro": "^5.4.2",
