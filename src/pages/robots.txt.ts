@@ -4,7 +4,7 @@ export const GET: APIRoute = async () => {
   const robots = `User-agent: *
 Allow: /
 
-Sitemap: https://portfolio.tonmoykhan.site/sitemap.xml
+Sitemap: https://tonmoykhan.site/sitemap.xml
 `;
 
   return new Response(robots, {

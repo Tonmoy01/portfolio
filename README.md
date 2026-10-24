@@ -2,7 +2,7 @@
 
 A modern, high-performance portfolio website migrated from Next.js to **Astro 5**, featuring React 19, TypeScript, and Tailwind CSS 4. Built with Astro Islands architecture for blazing-fast page loads (near-zero client JS by default), a server-side contact form with Resend, and Docker support for production deployment.
 
-**Live:** [portfolio.tonmoykhan.site](https://portfolio.tonmoykhan.site)
+**Live:** [tonmoykhan.site](https://tonmoykhan.site)
 
 ## Project Structure
 
