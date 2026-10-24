@@ -9,6 +9,8 @@ A modern, high-performance portfolio website migrated from Next.js to **Astro 5*
 ```
 portfolio/
 ├── src/
+│   ├── config/
+│   │   └── seo.ts               # Centralized SEO & Schema.org JSON-LD config (react-ssr-seo-toolkit)
 │   ├── layouts/
 │   │   └── Layout.astro         # Root layout with metadata, OG tags, fonts, theme script
 │   ├── pages/

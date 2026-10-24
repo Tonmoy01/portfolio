@@ -1,19 +1,34 @@
 ---
 import '../styles/globals.css';
+import {
+  siteConfig,
+  SITE_URL,
+  structuredData,
+} from '@/config/seo';
+import {
+  buildTitle,
+  buildCanonicalUrl,
+  buildRobotsDirectives,
+} from 'react-ssr-seo-toolkit';
 
 interface Props {
   title?: string;
   description?: string;
   image?: string;
+  noindex?: boolean;
 }
 
 const {
-  title = 'Md. Tonmoy Khan | Frontend Developer',
-  description = 'Frontend Developer focused on building accessible, pixel-perfect user interfaces with React, TypeScript, and modern design systems.',
+  title,
+  description = siteConfig.description,
   image = '/og-image.png',
+  noindex = false,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, 'https://tonmoykhan.site');
+const canonicalURL = buildCanonicalUrl(SITE_URL, Astro.url.pathname);
+const pageTitle = title ? title : (siteConfig.title || 'Md. Tonmoy Khan | Frontend Developer');
+const ogImageUrl = image.startsWith('http') ? image : `${SITE_URL}${image.startsWith('/') ? '' : '/'}${image}`;
+const robotsContent = noindex ? 'noindex, nofollow' : buildRobotsDirectives(siteConfig.robots);
 ---
 
 <!doctype html>
@@ -21,26 +36,32 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://tonmoykhan.site');
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content="Frontend Developer, React Developer, Next.js, TypeScript, Tailwind CSS, Web Developer, Md. Tonmoy Khan" />
     <meta name="author" content="Md. Tonmoy Khan" />
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={siteConfig.openGraph?.type || 'website'} />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:site_name" content="Md. Tonmoy Khan | Portfolio" />
-    <meta property="og:title" content={title} />
+    <meta property="og:site_name" content={siteConfig.openGraph?.siteName || 'Md. Tonmoy Khan | Portfolio'} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={ogImageUrl} />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:card" content={siteConfig.twitter?.card || 'summary_large_image'} />
     <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
+    <meta property="twitter:title" content={pageTitle} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={image} />
+    <meta property="twitter:image" content={ogImageUrl} />
+
+    <!-- Robots -->
+    <meta name="robots" content={robotsContent} />
+
+    <!-- JSON-LD Structured Data (Schema.org Person & WebSite via react-ssr-seo-toolkit) -->
+    <script type="application/ld+json" set:html={structuredData} />
 
     <!-- Favicon & Icons -->
     <link rel="icon" type="image/svg+xml" href="/icon.svg" />
@@ -53,9 +74,6 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://tonmoykhan.site');
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Pacifico&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Robots -->
-    <meta name="robots" content="index, follow" />
 
     <!-- Early Theme Script to prevent flash -->
     <script is:inline>
