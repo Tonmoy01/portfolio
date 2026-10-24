@@ -4,6 +4,7 @@ export interface Project {
   description: string;
   thumbnail: string;
   url: string;
+  github?: string;
   tags?: string[];
   featured?: boolean;
 }
@@ -17,6 +18,24 @@ export const projects: Project[] = [
     url: "https://potentialai.com",
     featured: true,
     tags: ["React", "GSAP"],
+  },
+  {
+    id: "findherosection",
+    title: "Find Hero Section",
+    description: "Scroll-Driven Real Estate Landing Experience",
+    thumbnail: "/projects/findherosection.png",
+    url: "https://find-hero-section-eta.vercel.app/",
+    github: "https://github.com/Tonmoy01/find-hero-section",
+    tags: ["React", "GSAP", "Lenis", "Tailwind"],
+  },
+  {
+    id: "terrarium",
+    title: "Terrarium",
+    description: "Handcrafted Terrarium Showcase & Canvas Scroll",
+    thumbnail: "/projects/terrarium.png",
+    url: "https://terrarium-manikganj-woad.vercel.app/",
+    github: "https://github.com/Tonmoy01/Terrarium-Manikganj",
+    tags: ["React", "TypeScript", "GSAP", "Canvas"],
   },
   {
     id: "pacepilot",

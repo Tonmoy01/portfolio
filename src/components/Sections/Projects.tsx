@@ -1,17 +1,33 @@
+import React from "react";
 import { Icon } from "@/components/Icon";
 import { projects, type Project } from "@/data/projects";
 
 function ProjectCard({ project }: { project: Project }) {
+  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    // If the click is inside an explicit link or button, let it handle its own navigation
+    if ((e.target as HTMLElement).closest("a, button")) {
+      return;
+    }
+    window.open(project.url, "_blank", "noopener,noreferrer");
+  };
+
   return (
-    <a
-      href={project.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`${project.featured ? "md:col-span-2" : ""} group flex flex-col rounded-2xl overflow-hidden bg-surface-tertiary border border-border-primary hover:border-border-strong shadow-sm hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-black/20 hover:-translate-y-1 transition-all duration-500 ease-out`}
+    <div
+      onClick={handleCardClick}
+      className={`${project.featured ? "md:col-span-2" : ""} group flex flex-col rounded-2xl overflow-hidden bg-surface-tertiary border border-border-primary hover:border-border-strong shadow-sm hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-black/20 hover:-translate-y-1 transition-all duration-500 ease-out cursor-pointer`}
+      role="article"
+      aria-label={project.title}
     >
       {/* Image area with padding */}
       <div className="relative p-3 pb-0">
-        <div className={`relative overflow-hidden rounded-xl ${project.featured ? "h-56 md:h-72" : "h-48 md:h-56"}`}>
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`View live demo of ${project.title}`}
+          tabIndex={-1}
+          className={`block relative overflow-hidden rounded-xl ${project.featured ? "h-56 md:h-72" : "h-48 md:h-56"}`}
+        >
           <img
             src={project.thumbnail}
             alt={`${project.title} screenshot`}
@@ -25,40 +41,67 @@ function ProjectCard({ project }: { project: Project }) {
               <Icon icon="lucide:arrow-up-right" width={16} className="text-white" />
             </div>
           </div>
-        </div>
+        </a>
       </div>
 
       {/* Text content */}
       <div className="px-4 py-4 flex items-center justify-between gap-4">
         <div className="min-w-0">
-          <h3 className="text-base font-semibold text-text-heading truncate">
-            {project.title}
-          </h3>
-          <p className="text-sm text-text-muted mt-0.5 truncate">
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline focus:outline-none"
+          >
+            <h3 className="text-base font-semibold text-text-heading truncate">
+              {project.title}
+            </h3>
+          </a>
+          <p className="text-sm text-text-muted mt-0.5 truncate" title={project.description}>
             {project.description}
           </p>
         </div>
         <div className="flex items-center gap-2 shrink-0">
           {project.tags && (
-            <div className="hidden sm:flex gap-1.5">
+            <div className="hidden sm:flex flex-wrap gap-1.5">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-xs text-text-muted border border-border-primary px-2.5 py-1 rounded-full bg-page-bg/50"
+                  className="text-xs text-text-muted border border-border-primary px-2.5 py-1 rounded-full bg-page-bg/50 whitespace-nowrap"
                 >
                   {tag}
                 </span>
               ))}
             </div>
           )}
-          <Icon
-            icon="lucide:arrow-up-right"
-            width={16}
-            className="text-text-faint group-hover:text-text-secondary transition-colors"
-          />
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-1.5 rounded-full hover:bg-surface-elevated text-text-muted hover:text-text-heading border border-border-primary/50 transition-colors"
+              title="View Source on GitHub"
+              aria-label={`View ${project.title} source on GitHub`}
+            >
+              <Icon icon="lucide:github" width={14} />
+            </a>
+          )}
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-1 text-text-faint group-hover:text-text-secondary transition-colors"
+            title="Open Live Demo"
+            aria-label={`Open ${project.title} live demo`}
+          >
+            <Icon
+              icon="lucide:arrow-up-right"
+              width={16}
+            />
+          </a>
         </div>
       </div>
-    </a>
+    </div>
   );
 }
 
